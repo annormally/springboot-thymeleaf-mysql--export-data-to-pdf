@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot - Thymeleaf - MySQL -- Export data to PDF</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/table.css">
+</head>
+<body>
+<div id="wrapper">
+    <!-- Navigator -->
+    <div id="navigator">
+        <nav>
+            <div class="navbar">
+                <!-- Logo | Alt text if not exist a logo -->
+                <div class="navbar-banner">
+                    <a class="white" href="/"><img src="" alt="Logo"></a>
+                </div>
+                <div class="nav-links">
+                    <div class="link"><a class="button-type-1" href="/" title="Home">Company Fields</a>
+                    </div>
+                    <div class="link"><a class="button-type-1" href="/companies" title="Home">Companies Table</a></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div style="text-align: center" class="container-margin">
+        <table class="custom-table">
+            <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Company Email</th>
+                <th>Company Phone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="companyFields:${companyList}">
+                <td th:text="${companyFields.companyName}"></td>
+                <td th:text="${companyFields.companyEmail}"></td>
+                <td th:text="${companyFields.companyPhone}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="button-type-1"><a class="white" th:href=" @{/export/company}">Export to PDF</a></button>
+    </div>
+</div>
+<footer id="footer">
+    <div id="footer-content">
+        <p>Copyright ©2022 All rights reserved |</p>
+        <p title="Popa Catalin">&nbsp;Popa Catalin</p>
+    </div>
+</footer>
+</body>
+</html>

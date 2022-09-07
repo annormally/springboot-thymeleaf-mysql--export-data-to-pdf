@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot - Thymeleaf - MySQL -- Export data to PDF</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<div id="wrapper">
+    <!-- Navigator -->
+    <div id="navigator">
+        <nav>
+            <div class="navbar">
+                <!-- Logo | Alt text if not exist a logo -->
+                <div class="navbar-banner">
+                    <a class="white" href="/"><img src="" alt="Logo"></a>
+                </div>
+                <div class="nav-links">
+                    <div class="link"><a class="button-type-1" href="/" title="Home">Company Fields</a>
+                    </div>
+                    <div class="link"><a class="button-type-1" href="/companies" title="Home">Companies Table</a></div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container container-margin">
+        <form method="post" action="/companyFields" th:object="${companyFields}">
+            <div class="container-grid">
+                <label for="companyName">Company Name</label>
+                <input type="text" id="companyName" name="companyName" th:field="*{companyName}">
+                <label for="companyEmail">Company Email</label>
+                <input type="text" id="companyEmail" name="companyEmail" th:field="*{companyEmail}">
+                <label for="companyPhone">Company Phone</label>
+                <input type="text" id="companyPhone" name="companyPhone" th:field="*{companyPhone}">
+                <button class="button-type-1" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<footer id="footer">
+    <div id="footer-content">
+        <p>Copyright ©2022 All rights reserved |</p>
+        <p title="Popa Catalin">&nbsp;Popa Catalin</p>
+    </div>
+</footer>
+</body>
+</html>
